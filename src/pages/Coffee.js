@@ -10,10 +10,17 @@ export default function App() {
     zoom: 10,
   });
 
-  return (
-    <div> 
-      <ReactMapGL {...viewport}>markers here</ReactMapGL> 
-    </div>
-  )
 
+  return (
+    <div>
+      <ReactMapGL {...viewport}
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      mapStyle="mapbox://styles/lazyloafs/ckec5ha2x192l19qrbdh2gjfe"
+      onViewportChange={viewport => {
+        setViewport(viewport);
+      }}
+      >
+        markers here</ReactMapGL>
+    </div>
+  );
 }
